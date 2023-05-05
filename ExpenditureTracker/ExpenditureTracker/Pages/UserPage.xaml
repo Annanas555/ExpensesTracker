@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ExpenditureTracker.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Доходы и расходы">
+      Title="Доходы и расходы" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,13 +18,17 @@
         <TextBlock Grid.Row="0" Text="{Binding UserName}" Margin="5" />
 
         <ListView Grid.Row="1" Name="LViewExpenses">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding ExpenseDescription}" />
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding ExpenseDate}" />
-                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding ExpenseAmount}" />
-                </GridView>
-            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="LightGray" Margin="5" Padding="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ExpenseDate, StringFormat=dd.MM.yyyy}" Margin="0 0 10 0"/>
+                            <TextBlock Text="{Binding ExpenseDescription}" Margin="0 0 10 0"/>
+                            <TextBlock Text="{Binding ExpenseAmount, StringFormat='{}{0:#,#.00} ₽'}" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">

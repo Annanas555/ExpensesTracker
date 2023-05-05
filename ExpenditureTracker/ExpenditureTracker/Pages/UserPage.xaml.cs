@@ -45,6 +45,10 @@ namespace ExpenditureTracker.Pages
             var expenses = App.Context.Expenses.Where(e => e.UserId == App.CurrentUser.UserId).ToList();
             LViewExpenses.ItemsSource = expenses;
         }
-        
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MyExpenses();
+        }
     }
 }

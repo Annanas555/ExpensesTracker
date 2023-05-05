@@ -32,7 +32,7 @@ namespace ExpenditureTracker.Pages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedCategory = (Category)CategoryComboBox.SelectedItem;
+            var selectedCategory = App.Context.Categories.Where(c => c.CategoryName == CategoryComboBox.Text).Select(c => c.CategoryId).FirstOrDefault();
 
             if (!decimal.TryParse(AmountTextBox.Text, out decimal amount))
             {
@@ -45,7 +45,7 @@ namespace ExpenditureTracker.Pages
                 var newExpense = new Models.Expense
                 {
                     UserId = App.CurrentUser.UserId,
-                    CategoryId = selectedCategory.CategoryId,
+                    CategoryId = selectedCategory,
                     ExpenseAmount = amount,
                     ExpenseDescription = DescriptionTextBox.Text,
                     ExpenseDate = DateTime.Now
