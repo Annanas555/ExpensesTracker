@@ -1,0 +1,24 @@
+﻿<Page x:Class="ExpenditureTracker.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ExpenditureTracker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Регистрация">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Логин" Margin="0 0 0 10"/>
+            <TextBox Name="TBoxLogin" Margin="0 0 0 20" Width="200"/>
+            <TextBlock Text="Пароль" Margin="0 0 0 10"/>
+            <PasswordBox Name="PBoxPassword" Margin="0 0 0 20" Width="200"/>
+            <TextBlock Text="Повторите пароль" Margin="0 0 0 10"/>
+            <PasswordBox Name="PBoxConfirmPassword" Margin="0 0 0 20" Width="200"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Регистрация" Name="RegButton" Margin="0 0 10 0" Click="RegButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
